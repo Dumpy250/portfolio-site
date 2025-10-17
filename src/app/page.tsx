@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
       <main className="min-h-screen px-6 py-16 sm:px-10">
@@ -13,12 +15,9 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex gap-3">
-            <a
-                href="/projects"
-                className="rounded-xl px-5 py-3 bg-white text-black font-medium"
-            >
-              View Projects
-            </a>
+              <Link href="/projects" className="rounded-xl px-5 py-3 bg-white text-black font-medium">
+                  View Projects
+              </Link>
             <a
                 href="/resume.pdf"
                 className="rounded-xl px-5 py-3 border border-white/20"
