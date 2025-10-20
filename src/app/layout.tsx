@@ -22,11 +22,7 @@ export const metadata: Metadata = {
     },
     description:
         "Backend & Cloud software engineer. Java/Spring Boot, AWS (VPC, RDS, Cognito), React/Next.js, Docker. Veteran; ML-curious.",
-    // update to your real domain after you connect it on Vercel
-    metadataBase:
-        typeof window === "undefined"
-            ? new URL("https://portfolio-site.vercel.app")
-            : undefined,
+    metadataBase: new URL("https://cameron-basham.com"),
     openGraph: {
         title: "Cameron Basham — Portfolio",
         description:

@@ -18,12 +18,13 @@ export default function Home() {
               <Link href="/projects" className="rounded-xl px-5 py-3 bg-white text-black font-medium">
                   View Projects
               </Link>
-            <a
-                href="/resume.pdf"
-                className="rounded-xl px-5 py-3 border border-white/20"
-            >
-              Download Resume
-            </a>
+              <a
+                  className="rounded-xl border border-white/15 px-5 py-3 hover:bg-white/5"
+                  href="/resume.pdf"
+                  download
+              >
+                  Download Resume
+              </a>
           </div>
         </section>
 
