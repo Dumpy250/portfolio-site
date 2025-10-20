@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cameron Basham — Software Engineer Portfolio
 
-## Getting Started
+This is my personal software engineering portfolio, built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**, and hosted on **Vercel** at [https://cameron-basham.com](https://cameron-basham.com).
 
-First, run the development server:
+It showcases my backend and cloud development work — including Java/Spring Boot microservices, AWS integration, and machine learning experiments — along with an About section, Contact page, and downloadable resume.
+
+---
+
+## 🚀 Features
+
+- ⚙️ **Modern Stack:** Next.js (App Router) + TypeScript + Tailwind CSS  
+- 📱 **Responsive Design:** Works perfectly on mobile and desktop  
+- 🧠 **Projects Grid:** Showcases multiple projects with detailed case studies  
+- 📄 **Downloadable Resume:** Served directly from `/public/resume.pdf`  
+- 🔍 **SEO Ready:** Automatic `/sitemap.xml` and `/robots.txt`  
+- 🌐 **Deployed with CI/CD:** Automatic deploys via Vercel connected to GitHub  
+- 🔒 **Custom Domain + SSL:** [cameron-basham.com](https://cameron-basham.com)
+
+---
+
+## 🧩 Tech Stack
+
+| Layer | Technologies |
+|-------|---------------|
+| **Frontend** | Next.js 15, React 18 |
+| **Styling** | Tailwind CSS |
+| **Language** | TypeScript |
+| **Hosting** | Vercel |
+| **Version Control** | Git + GitHub |
+| **Fonts** | Geist / Geist Mono |
+| **Images & Assets** | Served from `public/` |
+
+---
+
+## 🧠 Getting Started (Local Development)
+
+Clone the repository and run it locally:
 
 ```bash
+git clone https://github.com/Dumpy250/portfolio-site.git
+cd portfolio-site
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open your browser to http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To create a production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🗂️ Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+portfolio-site/
+│
+├── public/                 # Static assets served at root
+│   ├── favicon.ico
+│   ├── resume.pdf
+│   └── projects/           # Project screenshots or images
+│
+├── src/
+│   ├── app/                # Next.js routes (/, /about, /contact, /projects)
+│   │   ├── layout.tsx      # Root layout with Navbar and footer
+│   │   ├── page.tsx        # Home page
+│   │   ├── about/          # About page
+│   │   ├── contact/        # Contact page
+│   │   ├── projects/       # Projects grid and [slug] case studies
+│   │   └── not-found.tsx   # 404 page
+│   │
+│   ├── components/         # Reusable UI components (Navbar, ProjectCard, etc.)
+│   ├── data/               # Project metadata / content
+│   ├── types/              # TypeScript type definitions
+│   └── styles/             # Global CSS (if used)
+│
+├── package.json
+├── next.config.ts
+├── tsconfig.json
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Deployment
 
-## Deploy on Vercel
+This site deploys automatically to Vercel from the master branch.
+All development work happens on the dev branch before merging to production.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Production URL: https://cameron-basham.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Preview Builds: Generated automatically for each pull request.
+
+📫 Contact
+
+Email: cameron250taylor@outlook.com
+GitHub: @Dumpy250
+Portfolio: https://cameron-basham.com
