@@ -94,6 +94,7 @@ Preview Builds: Generated automatically for each pull request.
 
 📫 Contact
 
+Name: Cameron Basham
 Email: cameron250taylor@outlook.com
 GitHub: @Dumpy250
 Portfolio: https://cameron-basham.com
