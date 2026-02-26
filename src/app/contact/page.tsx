@@ -21,8 +21,6 @@ export default function ContactPage() {
                 >
                     GitHub
                 </a>
-                {/* Add LinkedIn when ready */}
-                {/* <a ... href="https://www.linkedin.com/in/your-handle">LinkedIn</a> */}
             </div>
         </main>
     );
