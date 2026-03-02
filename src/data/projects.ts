@@ -2,6 +2,43 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
     {
+        slug: "carla-observability-toolkit",
+        title: "CARLA Observability Toolkit (In Progress)",
+        summary:
+            "Simulation telemetry and metrics toolkit for CARLA with sprint-based delivery, dashboard planning, and experiment validation workflows.",
+        tech: ["Python", "CARLA", "Observability", "Telemetry", "Dashboards"],
+        image: "/projects/carla-observability-toolkit.svg",
+        links: {
+            github: "https://github.com/Dumpy250/carla-observability-toolkit",
+        },
+        caseStudy: {
+            overview:
+                "This capstone is focused on building a practical observability layer for CARLA simulation workflows. The project emphasizes structured telemetry collection, measurable experiment evaluation, and clear reporting so model and scenario behavior can be analyzed with less guesswork. It is being delivered in phased sprints with explicit acceptance criteria.",
+            highlights: [
+                "Defined a 5-phase sprint plan to ship telemetry, dashboards, and validation in increments.",
+                "Mapped key simulation and experiment metrics for consistent observability.",
+                "Established repository and project-board workflows to keep execution visible.",
+                "Added validation checkpoints to assess metric quality and experiment outcomes.",
+            ],
+            architecture: [
+                "Telemetry collectors capture simulation events and performance signals.",
+                "Metrics are normalized into analysis-ready structures for downstream dashboards.",
+                "Dashboard and reporting layers present experiment behavior over time.",
+                "Sprint execution is tracked through scoped stories and acceptance criteria.",
+            ],
+            learnings: [
+                "Strong observability design is as important as model logic in simulation work.",
+                "Incremental delivery reduces risk for multi-phase capstone projects.",
+                "Useful metrics need clear definitions before collection starts.",
+                "A visible sprint board improves accountability and planning decisions.",
+            ],
+            metrics: [
+                { label: "Delivery plan", value: "5 phases and 90 total story points" },
+                { label: "Current focus", value: "Telemetry, dashboards, and experiment validation" },
+            ],
+        },
+    },
+    {
         slug: "car-rental-microservices",
         title: "Car Rental Microservices",
         summary:
@@ -36,74 +73,6 @@ export const projects: Project[] = [
         },
     },
     {
-        slug: "equipment-reservation-tool",
-        title: "Student Equipment Reservation Tool",
-        summary:
-            "Java backend and React frontend with admin CSV import for bulk records, validation, and role-based reservation flows.",
-        tech: ["Java", "Spring", "React", "JWT", "MariaDB"],
-        image: "/projects/equipment-reservation-tool.svg",
-        caseStudy: {
-            overview:
-                "This app solves a practical scheduling problem for student organizations sharing limited gear. I focused on making checkout and return actions straightforward for users while giving administrators stronger controls for inventory and data quality. The main engineering challenge was handling bulk record imports safely without corrupting existing reservations.",
-            highlights: [
-                "Created reservation workflows with guardrails for availability and conflicting bookings.",
-                "Built an admin CSV import path with field validation and row-level error feedback.",
-                "Implemented role-based flows for student users versus administrative staff.",
-                "Connected React UI states to backend validation responses for faster correction.",
-            ],
-            architecture: [
-                "Spring API layer handles reservation rules, status transitions, and persistence.",
-                "React frontend uses form-driven pages for reservation creation and management.",
-                "JWT-secured endpoints enforce role checks at both route and service layers.",
-                "MariaDB stores reservations, equipment inventory, and user-role associations.",
-            ],
-            learnings: [
-                "CSV ingestion pipelines need clear validation ordering and actionable errors.",
-                "Availability logic is easier to trust when modeled as explicit state transitions.",
-                "Good admin UX matters as much as end-user UX in operations-heavy systems.",
-                "Shared contract types reduce frontend-backend mismatch defects.",
-            ],
-            metrics: [
-                { label: "Primary users", value: "Students and department admins" },
-                { label: "Bulk ingest", value: "CSV import with per-row validation feedback" },
-            ],
-        },
-    },
-    {
-        slug: "pytorch-cnn-gpu",
-        title: "PyTorch CNN on GPU",
-        summary:
-            "CUDA 12.1 training pipeline with accuracy tracking across 5 or more epochs and prediction visualization.",
-        tech: ["Python", "PyTorch", "CUDA", "ML"],
-        image: "/projects/pytorch-cnn-gpu.svg",
-        caseStudy: {
-            overview:
-                "I built this project to get hands-on experience with GPU-based deep learning workflows. The focus was less on squeezing out benchmark numbers and more on building a reliable training loop, repeatable experiment setup, and clear model diagnostics. I also wanted to verify that the full CUDA toolchain was configured correctly end to end.",
-            highlights: [
-                "Set up data preprocessing and batching compatible with GPU acceleration.",
-                "Implemented training and evaluation loops with epoch-level metric tracking.",
-                "Recorded model performance over multiple runs to compare hyperparameter choices.",
-                "Generated prediction visualizations to inspect where the classifier fails.",
-            ],
-            architecture: [
-                "Python pipeline loads dataset, applies transforms, and builds DataLoader batches.",
-                "CNN model is defined in PyTorch with forward pass and loss optimization steps.",
-                "CUDA device detection controls whether training runs on GPU or CPU fallback.",
-                "Metrics and sample predictions are exported for quick post-run analysis.",
-            ],
-            learnings: [
-                "Input pipeline efficiency can bottleneck model throughput before compute does.",
-                "Tracking both loss and accuracy reveals overfitting earlier than one metric alone.",
-                "GPU memory errors are easier to debug with smaller baseline batch sizes first.",
-                "Reproducibility improves when seeds and config values are logged every run.",
-            ],
-            metrics: [
-                { label: "Training runtime", value: "GPU-accelerated via CUDA 12.1" },
-                { label: "Experiment length", value: "5 plus epochs per baseline run" },
-            ],
-        },
-    },
-    {
         slug: "aws-vpc-rds-migration",
         title: "AWS VPC + RDS Migration",
         summary:
@@ -134,6 +103,75 @@ export const projects: Project[] = [
             metrics: [
                 { label: "Cloud scope", value: "VPC, subnets, security groups, and RDS" },
                 { label: "Outcome", value: "Local DB stack migrated to managed AWS database" },
+            ],
+        },
+    },
+    {
+        slug: "pytorch-cnn-gpu",
+        title: "GPU-Accelerated CNN Training",
+        summary:
+            "Designed and trained a CUDA-enabled convolutional neural network with manual training loops, metric tracking, and Top-1/Top-5 evaluation to analyze model performance and convergence behavior.",
+        tech: ["Python", "PyTorch", "CUDA", "Deep Learning"],
+        image: "/projects/pytorch-cnn-gpu.svg",
+        badgeText: "Top-1: 81% | Top-5: 87%",
+        caseStudy: {
+            overview:
+                "I built this project to gain hands-on experience with GPU-accelerated deep learning and make training behavior easier to inspect. The focus was on writing a reliable manual training loop, tracking core metrics, and evaluating Top-1 and Top-5 accuracy for clearer model diagnostics. I also verified CUDA 12.x setup end to end so experiments were reproducible across runs.",
+            highlights: [
+                "Built CUDA-enabled preprocessing and DataLoader batching for consistent GPU throughput.",
+                "Implemented manual train and eval loops with epoch-level loss and accuracy tracking.",
+                "Added Top-1 and Top-5 evaluation to compare prediction quality beyond a single metric.",
+                "Ran controlled optimization experiments to analyze convergence behavior.",
+            ],
+            architecture: [
+                "Python pipeline loads data, applies transforms, and prepares batched tensors.",
+                "PyTorch CNN model trains through explicit forward, backward, and optimizer steps.",
+                "Device checks route execution to CUDA when available with CPU fallback support.",
+                "Metric logging stores loss, Top-1, and Top-5 values per epoch for analysis.",
+            ],
+            learnings: [
+                "Manual loops expose failure points that high-level trainers can hide.",
+                "Top-1 plus Top-5 gives a better signal for model progress on harder classes.",
+                "Optimization changes are easier to trust when metric tracking is standardized.",
+                "Run-to-run reproducibility depends on capturing config and seed values every time.",
+            ],
+            metrics: [
+                { label: "Compute stack", value: "CUDA 12.x with PyTorch training pipeline" },
+                { label: "Evaluation", value: "Top-1 and Top-5 metrics tracked across epochs" },
+            ],
+        },
+    },
+    {
+        slug: "equipment-reservation-tool",
+        title: "Student Equipment Reservation Tool",
+        summary:
+            "Java backend and React frontend with admin CSV import for bulk records, validation, and role-based reservation flows.",
+        tech: ["Java", "Spring", "React", "JWT", "MariaDB"],
+        image: "/projects/equipment-reservation-tool.svg",
+        caseStudy: {
+            overview:
+                "This app solves a practical scheduling problem for student organizations sharing limited gear. I focused on making checkout and return actions straightforward for users while giving administrators stronger controls for inventory and data quality. The main engineering challenge was handling bulk record imports safely without corrupting existing reservations.",
+            highlights: [
+                "Created reservation workflows with guardrails for availability and conflicting bookings.",
+                "Built an admin CSV import path with field validation and row-level error feedback.",
+                "Implemented role-based flows for student users versus administrative staff.",
+                "Connected React UI states to backend validation responses for faster correction.",
+            ],
+            architecture: [
+                "Spring API layer handles reservation rules, status transitions, and persistence.",
+                "React frontend uses form-driven pages for reservation creation and management.",
+                "JWT-secured endpoints enforce role checks at both route and service layers.",
+                "MariaDB stores reservations, equipment inventory, and user-role associations.",
+            ],
+            learnings: [
+                "CSV ingestion pipelines need clear validation ordering and actionable errors.",
+                "Availability logic is easier to trust when modeled as explicit state transitions.",
+                "Good admin UX matters as much as end-user UX in operations-heavy systems.",
+                "Shared contract types reduce frontend-backend mismatch defects.",
+            ],
+            metrics: [
+                { label: "Primary users", value: "Students and department admins" },
+                { label: "Bulk ingest", value: "CSV import with per-row validation feedback" },
             ],
         },
     },

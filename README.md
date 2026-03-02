@@ -45,6 +45,20 @@ npm run build
 npm run start
 ```
 
+Verification for static metadata routes (to avoid Turbopack production build 404s):
+
+```bash
+# 1) Build + start production server
+npm run build && npm run start
+
+# 2) In another terminal, confirm each route returns 200
+curl -I http://localhost:3000/robots.txt
+curl -I http://localhost:3000/sitemap.xml
+curl -I http://localhost:3000/favicon.ico
+```
+
+Expected: each response includes `HTTP/1.1 200 OK` (or equivalent `200` status).
+
 ## Project Structure
 
 ```text

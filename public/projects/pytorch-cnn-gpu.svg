@@ -7,10 +7,10 @@
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="72" y="80" width="1056" height="470" rx="28" fill="#450A0A" fill-opacity="0.42"/>
-  <text x="120" y="250" fill="#FEE2E2" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
-    PyTorch CNN on GPU
+  <text x="120" y="245" fill="#FEE2E2" font-size="46" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    GPU-Accelerated CNN Training
   </text>
-  <text x="120" y="320" fill="#FCA5A5" font-size="30" font-family="Segoe UI, Arial, sans-serif">
-    CUDA 12.1  |  Training metrics  |  Error analysis
+  <text x="120" y="318" fill="#FCA5A5" font-size="24" font-family="Segoe UI, Arial, sans-serif">
+    CUDA 12.x | Top-1 / Top-5 Evaluation | Model Optimization
   </text>
 </svg>

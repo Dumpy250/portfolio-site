@@ -15,6 +15,7 @@ export type Project = {
     summary: string;
     tech: string[]; // tags
     image?: string; // /projects/<file>.(png|svg) (optional)
+    badgeText?: string;
     caseStudy?: ProjectCaseStudy;
     links?: {
         github?: string;

@@ -7,6 +7,11 @@ export default function ProjectCard({ p }: { p: Project }) {
         <article className="group rounded-2xl border border-white/10 bg-white/5 p-4 hover:border-white/20 transition">
             {p.image ? (
                 <div className="relative mb-3 overflow-hidden rounded-xl">
+                    {p.badgeText ? (
+                        <span className="pointer-events-none absolute right-2 top-2 z-10 max-w-[calc(100%-1rem)] rounded-md border border-white/15 bg-black/35 px-2 py-1 text-right text-[10px] text-gray-300 backdrop-blur-sm sm:text-[11px]">
+                            {p.badgeText}
+                        </span>
+                    ) : null}
                     <Image
                         src={p.image}
                         alt={p.title}
@@ -37,7 +42,7 @@ export default function ProjectCard({ p }: { p: Project }) {
                     href={`/projects/${p.slug}`}
                     className="text-sm underline underline-offset-4"
                 >
-                    Read case study
+                    Read case study →
                 </Link>
                 {p.links?.demo ? (
                     <a
