@@ -3,6 +3,10 @@ export type ProjectCaseStudy = {
     highlights: string[];
     architecture: string[];
     learnings: string[];
+    references?: {
+        label: string;
+        href: string;
+    }[];
     metrics?: {
         label: string;
         value: string;

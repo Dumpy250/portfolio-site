@@ -123,6 +123,20 @@ export default async function CaseStudy({ params }: CaseStudyPageProps) {
                             </ul>
                         </section>
                     ) : null}
+                    {project.caseStudy.references && project.caseStudy.references.length > 0 ? (
+                        <section>
+                            <h2 className="text-lg font-semibold text-white mb-3">Release &amp; Documentation</h2>
+                            <ul className="space-y-2">
+                                {project.caseStudy.references.map((reference) => (
+                                    <li key={reference.href}>
+                                        <a href={reference.href} target="_blank" rel="noreferrer" className="text-sm underline underline-offset-4 hover:text-white">
+                                            {reference.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+                    ) : null}
                 </div>
             ) : (
                 <section className="space-y-3 text-gray-300 leading-relaxed">

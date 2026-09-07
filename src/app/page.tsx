@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { projects } from "@/data/projects";
+
+const featuredProject = projects.find((project) => project.slug === "carla-observability-toolkit")!;
 
 export default function Home() {
     return (
@@ -9,7 +12,7 @@ export default function Home() {
                     Cameron Basham - Software Engineer
                 </h1>
                 <p className="mt-6 text-lg text-gray-300 max-w-3xl">
-                    Backend & Cloud Engineer focused on secure service architecture and AWS infrastructure (Spring Boot, JWT/OAuth2, RDS/VPC). Currently developing a CARLA observability framework for real-time telemetry and experiment validation, plus CUDA-accelerated CNN training in PyTorch.
+                    Backend & Cloud Engineer focused on secure service architecture and AWS infrastructure (Spring Boot, JWT/OAuth2, RDS/VPC). Released CARLA Observability Toolkit v1.0.0 for simulation telemetry and experiment comparison. Other work includes CUDA-accelerated CNN training in PyTorch.
                 </p>
 
                 <div className="mt-8 flex gap-3">
@@ -49,12 +52,12 @@ export default function Home() {
             <section className="max-w-5xl mx-auto mt-8">
                 <h2 className="text-2xl font-semibold">Featured Project</h2>
                 <div className="mt-4 rounded-2xl border border-white/15 bg-white/5 p-6 sm:p-7">
-                    <h3 className="text-xl font-semibold">CARLA Observability Toolkit</h3>
+                    <h3 className="text-xl font-semibold">{featuredProject.title}</h3>
                     <p className="mt-2 text-gray-300 max-w-3xl">
-                        Designed and implemented a telemetry extraction and validation framework for CARLA, enabling real-time vehicle-state instrumentation and experiment-driven performance analysis.
+                        {featuredProject.summary}
                     </p>
                     <p className="mt-2 text-sm text-gray-400">
-                        Key Tech: Python, CARLA Python API, telemetry pipelines, validation workflows
+                        Key Tech: {featuredProject.tech.join(", ")}
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-3">
