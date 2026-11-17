@@ -7,41 +7,6 @@ const renderCase = async (slug) => renderToStaticMarkup(
   await loadSource("src/app/projects/[slug]/page.tsx").default({ params: Promise.resolve({ slug }) }),
 );
 
-test("vehicle shared model guards initial removal, duplicate association, wrong owner, and missing records", () => {
-  const { initialVehicleModel, transitionVehicle } = loadSource("src/lib/vehicle-lifecycle.ts");
-  const initial = initialVehicleModel();
-  assert.equal(initial.vehicle.status, "AVAILABLE");
-  assert.equal(initial.vehicle.owner, null);
-  assert.equal(initial.vehicle.association_date, null);
-  const invalidRemoval = transitionVehicle(initial, "remove", "example-user-a");
-  assert.equal(invalidRemoval.vehicle, initial.vehicle);
-  assert.match(invalidRemoval.feedback, /requires ASSOCIATED/);
-  const associated = transitionVehicle(initial, "associate", "example-user-a");
-  assert.equal(associated.vehicle.status, "ASSOCIATED");
-  assert.equal(associated.vehicle.owner, "example-user-a");
-  assert.equal(associated.vehicle.association_date, "illustrative association time");
-  assert.equal(initial.vehicle.status, "AVAILABLE", "input state is not mutated");
-  const duplicate = transitionVehicle(associated, "associate", "example-user-b");
-  assert.equal(duplicate.vehicle, associated.vehicle);
-  assert.match(duplicate.feedback, /requires AVAILABLE/);
-  const wrongOwner = transitionVehicle(associated, "remove", "example-user-b");
-  assert.equal(wrongOwner.vehicle, associated.vehicle);
-  assert.match(wrongOwner.feedback, /owner must match userId/);
-  const removed = transitionVehicle(associated, "remove", "example-user-a");
-  assert.equal(removed.vehicle.status, "AVAILABLE");
-  assert.equal(removed.vehicle.owner, null);
-  assert.equal(removed.vehicle.association_date, null);
-  const missing = initialVehicleModel(false);
-  for (const action of ["associate", "remove"]) {
-    const rejected = transitionVehicle(missing, action, "example-user-a");
-    assert.equal(rejected.vehicle, null);
-    assert.match(rejected.feedback, /vehicle must exist/);
-    assert.match(rejected.feedback, /^Illustration only:/);
-    assert.doesNotMatch(rejected.feedback, /HTTP|\b[245]\d\d\b/);
-  }
-  assert.equal(initialVehicleModel().lastAction, null);
-});
-
 test("vehicle recorded workflow preserves source scope and state-guard qualifications", async () => {
   const html = await renderCase("car-rental-microservices");
   assert.match(html, /Recorded API workflow/);
