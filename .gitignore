@@ -24,8 +24,8 @@
 .DS_Store
 *.pem
 
-# local IntelliJ library configuration
-/.idea/jsLibraryMappings.xml
+# local IDE settings
+/.idea/
 
 # debug
 npm-debug.log*
