@@ -133,7 +133,7 @@ export default async function CaseStudy({ params }: CaseStudyPageProps) {
         </div>
         {isCarla ? (
           <nav className="carla-entry-links" aria-label="Explore this project">
-            <a className="text-link" href="#carla-development-demo">Watch development demo</a>
+            <a className="text-link" href="#carla-final-presentation">Watch final presentation</a>
             <a className="text-link" href="#carla-gallery-title">Inspect dashboard screenshots</a>
           </nav>
         ) : null}
