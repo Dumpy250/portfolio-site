@@ -1,96 +1,112 @@
-# Cameron Basham - Software Engineer Portfolio
+# Cameron Basham — Software Engineer Portfolio
 
-Personal portfolio built with Next.js 15, TypeScript, and Tailwind CSS.
-Deployed on Vercel at [https://cameron-basham.com](https://cameron-basham.com).
+Personal software-engineering portfolio built with Next.js, React and TypeScript.
 
-The site highlights backend and cloud projects (Java/Spring Boot, AWS, ML), detailed case studies, an About page, a Contact page, and a downloadable resume.
+**Live site:** [www.cameron-basham.com](https://www.cameron-basham.com)
 
-## Features
+## What the site includes
 
-- Modern stack: Next.js (App Router) + TypeScript + Tailwind CSS
-- Responsive layout for desktop and mobile
-- Project grid with dynamic case-study pages
-- "Currently Building" section for active capstone work
-- Downloadable resume from `/public/resume.pdf`
-- SEO routes: `/sitemap.xml` and `/robots.txt`
-- GitHub + Vercel deployment workflow
+- A curated homepage featuring CARLA Observability Toolkit and Warehouse Item Recognition.
+- A Work catalog with five case studies: CARLA Observability Toolkit, Warehouse Item Recognition, Car Rental Backend & AWS Infrastructure, Equipment Rental Software, and Job Posting MVC.
+- Case studies that separate personal contributions from team capabilities and explain the evidence and its limits.
+- Recorded application views, fictional-data demonstrations, API records and explanatory diagrams. These portfolio viewers do not run the original applications, contact their databases or deploy cloud infrastructure.
+- About and Contact pages, an email-copy button with a manual-copy fallback, and a downloadable résumé.
+- Responsive layouts, keyboard navigation, screenshot inspection, and sitemap/robots metadata routes.
 
-## Tech Stack
+## Stack
 
-| Layer | Technologies |
-|-------|--------------|
-| Frontend | Next.js 15, React 19 |
-| Styling | Tailwind CSS |
-| Language | TypeScript |
-| Hosting | Vercel |
-| Version Control | Git + GitHub |
-| Fonts | Geist / Geist Mono |
-| Assets | Static files in `public/` |
+| Area | Technology |
+| --- | --- |
+| Framework | Next.js 15 App Router |
+| UI | React 19 and TypeScript |
+| Styling | Custom CSS and Tailwind CSS 4 |
+| Fonts | Geist and Geist Mono through `next/font` |
+| Hosting | Vercel; configured Node.js 22.x runtime |
+| Source and deployment | GitHub with Git-triggered Vercel deployments |
 
-## Local Development
+The lockfile pins the installed dependency tree. `package.json` also contains a Next-scoped PostCSS override; review that override when updating Next.js rather than removing or broadening it automatically.
+
+## Run locally
+
+Use Node.js 22.x to match the production runtime, and npm.
 
 ```bash
 git clone https://github.com/Dumpy250/portfolio-site.git
 cd portfolio-site
-npm install
+npm ci
 npm run dev
 ```
 
-Open: `http://localhost:3000`
+Open [localhost:3000](http://localhost:3000). No original-project backend services, database connections or application credentials are needed to run the portfolio. The initial production build may download fonts through `next/font`.
 
-## Production Build
+For a production-mode preview:
 
 ```bash
 npm run build
 npm run start
 ```
 
-Verification for static metadata routes (to avoid Turbopack production build 404s):
+## Checks
+
+Lint the application source and check TypeScript:
 
 ```bash
-# 1) Build + start production server
-npm run build && npm run start
-
-# 2) In another terminal, confirm each route returns 200
-curl -I http://localhost:3000/robots.txt
-curl -I http://localhost:3000/sitemap.xml
-curl -I http://localhost:3000/favicon.ico
+npm run lint -- src
+node node_modules/typescript/bin/tsc --noEmit --incremental false
 ```
 
-Expected: each response includes `HTTP/1.1 200 OK` (or equivalent `200` status).
+Run focused source tests using Node's built-in test runner, for example:
 
-## Project Structure
+```bash
+node --test tests/resume-delivery.test.mjs tests/copy-email.test.mjs
+```
+
+The HTTP checks in `tests/site.test.mjs` need a running production server. Their default URL is `http://127.0.0.1:3210`; `PORTFOLIO_TEST_URL` can select another base URL. To use the default, build and start the server in one terminal:
+
+```bash
+npm run build
+npm run start -- --hostname 127.0.0.1 --port 3210
+```
+
+Then run the checks in another terminal:
+
+```bash
+node --test tests/site.test.mjs
+```
+
+Source and HTTP tests do not replace browser checks for clipboard permissions, navigation, screenshot dialogs or actual downloads. Email copy requires a supported browser in a secure context such as HTTPS or localhost; if copying is unavailable, the address remains selectable.
+
+## Content and files
 
 ```text
-portfolio-site/
-|- public/
-|  |- favicon.ico
-|  |- resume.pdf
-|  `- projects/              # project images and sprint plan
-|- src/
-|  |- app/                   # routes: /, /about, /contact, /projects
-|  |  |- projects/[slug]/    # case-study pages
-|  |  |- robots.ts
-|  |  `- sitemap.ts
-|  |- components/
-|  |- data/
-|  `- types/
-|- package.json
-|- next.config.ts
-|- tsconfig.json
-`- README.md
+public/
+  icon.svg                  Brand icon
+  resume.pdf                Public résumé
+  projects/                 Images, diagrams and recorded demo exports
+src/
+  app/                      Home, Work, About, Contact and metadata routes
+    projects/[slug]/        Case-study route
+  components/               Shared UI and case-study viewers
+  data/                     Project catalog and homepage selection
+  lib/                      Recorded-view data and presentation helpers
+  types/                    Project types
+tests/                      Source and HTTP checks
+next.config.ts              Next.js configuration and résumé response header
 ```
+
+Project descriptions live in `src/data/projects.ts`; homepage curation lives in `src/data/selected-projects.ts`. Keep screenshots and exported records consistent with their captions, attribution and fictional-data labels.
+
+The public résumé is served at [`/resume.pdf`](https://www.cameron-basham.com/resume.pdf). Its response header supplies `Cameron-Basham-General-Software-Resume.pdf` as the filename while allowing inline viewing. The Contact download link uses the same descriptive filename. Verify the actual downloaded name and bytes after deployment, not just the link's HTML attributes.
 
 ## Deployment
 
-Deploys automatically to Vercel from GitHub.
+The production branch is **`master`**. Pull requests receive Vercel preview builds; merging to `master` triggers production deployment and automatic assignment of the production domains.
 
-- Production URL: `https://cameron-basham.com`
-- Preview builds: generated for pull requests
+Before merging, check the changed files and assets, run the relevant tests and production build, and verify the Vercel checks. After deployment, check the live project links, email-copy action and actual résumé download at [www.cameron-basham.com](https://www.cameron-basham.com).
 
 ## Contact
 
-- Name: Cameron Basham
-- Email: Cameron250Taylor@outlook.com
-- GitHub: [https://github.com/Dumpy250](https://github.com/Dumpy250)
-- Portfolio: [https://cameron-basham.com](https://cameron-basham.com)
+- **Cameron Basham**
+- Email: [Cameron250taylor@outlook.com](mailto:Cameron250taylor@outlook.com)
+- GitHub: [Dumpy250](https://github.com/Dumpy250)
+- LinkedIn: [cameron-basham](https://www.linkedin.com/in/cameron-basham)
