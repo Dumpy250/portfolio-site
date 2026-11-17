@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Recorded API workflow — vehicle lifecycle</title>
+  <desc id="desc">Explanatory diagram based on the recorded local run: create an AVAILABLE vehicle, associate it with a user, then release it back to AVAILABLE. Local demonstration with fictional data.</desc>
+  <rect width="1200" height="440" fill="#15252b"/>
+  <path d="M0 106H1200M0 363H1200" stroke="#365056"/>
+  <text x="56" y="68" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#fbfaf5">Recorded API workflow</text>
+  <text x="1144" y="67" text-anchor="end" font-family="monospace" font-size="17" fill="#bccdcb">JAVA / SPRING BOOT</text>
+  <g font-family="monospace" font-size="18" fill="#bccdcb"><text x="60" y="146">01</text><text x="450" y="146">02</text><text x="840" y="146">03</text></g>
+  <rect x="60" y="168" width="300" height="100" rx="8" fill="#e8eee5"/>
+  <rect x="450" y="168" width="300" height="100" rx="8" fill="#ffb59e"/>
+  <rect x="840" y="168" width="300" height="100" rx="8" fill="#e8eee5"/>
+  <g font-family="monospace" font-weight="700" font-size="29" text-anchor="middle" fill="#15252b"><text x="210" y="229">AVAILABLE</text><text x="600" y="229">ASSOCIATED</text><text x="990" y="229">AVAILABLE</text></g>
+  <g stroke="#ffb59e" stroke-width="3" fill="none"><path d="M376 218H432m-12-10 12 10-12 10"/><path d="M766 218H822m-12-10 12 10-12 10"/></g>
+  <g font-family="Arial, sans-serif" font-size="23" fill="#fbfaf5" text-anchor="middle"><text x="210" y="313">Create</text><text x="600" y="313">Associate</text><text x="990" y="313">Release</text></g>
+  <text x="56" y="408" font-family="Arial, sans-serif" font-size="20" fill="#bccdcb">Local demonstration with fictional data</text>
+</svg>

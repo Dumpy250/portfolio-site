@@ -1,0 +1,3 @@
+studentId,firstName,lastName,email,phoneNumber,studentAddress,classes,studentCreationDate,activationStatus
+900001,Alex,Demo,alex.demo@example.invalid,2025550101,100 Example Lane,DEMO101,2026-11-15,false
+900002,Taylor,Sample,taylor.sample@example.invalid,2025550102,200 Example Lane,DEMO101,2026-11-15,false

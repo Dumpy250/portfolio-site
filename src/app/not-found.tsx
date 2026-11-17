@@ -1,10 +1,17 @@
+import Link from "next/link";
 export default function NotFound() {
-    return (
-        <main className="grid place-items-center min-h-[60vh] px-6">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold">404</h1>
-                <p className="mt-2 text-gray-300">This page could not be found.</p>
-            </div>
-        </main>
-    );
+  return (
+    <section className="shell not-found">
+      <p className="eyebrow">404 / Wrong turn</p>
+      <h1>
+        Nothing built here.
+        <br />
+        Not yet, anyway.
+      </h1>
+      <p>This page doesn’t exist. The projects are a better place to start.</p>
+      <Link className="text-link" href="/projects">
+        Back to the work ↗
+      </Link>
+    </section>
+  );
 }

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Warehouse detector-to-classifier schematic</title>
+  <desc id="desc">Illustrative candidate rectangles, with only the largest selected as a crop, followed by resize, a custom CNN and ranked categories. If no regions are returned, the whole image goes through the same classifier. This is an explanatory illustration, not a photograph, recorded detection or prediction.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6c70"/></marker></defs>
+  <rect width="1200" height="440" fill="#e0e4dc"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#203036">
+    <text x="48" y="50" font-size="25" font-weight="600" letter-spacing="1">FIND A REGION. CLASSIFY ITS CONTENTS.</text>
+    <text x="1150" y="50" text-anchor="end" font-family="monospace" font-size="21" letter-spacing="2" fill="#526166">SCHEMATIC</text>
+    <text x="56" y="108" font-size="29">Candidate regions</text>
+    <rect x="48" y="133" width="340" height="202" rx="4" fill="#f5f4ee" stroke="#8d9998" stroke-width="2"/>
+    <rect x="70" y="151" width="90" height="62" fill="none" stroke="#66777b" stroke-width="3" stroke-dasharray="9 6"/>
+    <rect x="100" y="244" width="68" height="62" fill="none" stroke="#66777b" stroke-width="3" stroke-dasharray="9 6"/>
+    <rect x="210" y="165" width="146" height="108" fill="#f5dccb" stroke="#9a3c20" stroke-width="5"/>
+    <text x="210" y="307" font-size="22" fill="#9a3c20">Largest by area</text>
+    <path d="M 402 219 H 438" stroke="#5d6c70" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="449" y="135" font-size="29">Selected crop</text>
+    <rect x="450" y="165" width="146" height="108" fill="#f5dccb" stroke="#9a3c20" stroke-width="5"/>
+    <path d="M 608 219 H 659" stroke="#5d6c70" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="618" y="193" font-size="18" fill="#526166">Resize</text>
+    <rect x="672" y="165" width="200" height="108" rx="4" fill="#203036"/>
+    <text x="772" y="230" text-anchor="middle" font-size="31" fill="#f5f4ee">Custom CNN</text>
+    <path d="M 886 219 H 926" stroke="#5d6c70" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <rect x="940" y="165" width="212" height="108" rx="4" fill="#f5f4ee" stroke="#8d9998" stroke-width="2"/>
+    <text x="1046" y="208" text-anchor="middle" font-size="29">Ranked</text>
+    <text x="1046" y="246" text-anchor="middle" font-size="29">categories</text>
+    <path d="M 48 363 H 1152" stroke="#b8c0b9" stroke-width="1"/>
+    <text x="48" y="403" font-family="monospace" font-size="21" fill="#526166">NO REGIONS? USE THE WHOLE IMAGE THROUGH THE SAME CLASSIFIER.</text>
+  </g>
+</svg>

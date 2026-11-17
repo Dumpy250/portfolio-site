@@ -1,48 +1,65 @@
+import type { Metadata } from "next";
+import CopyEmailButton from "@/components/CopyEmailButton";
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact Cameron Basham about software engineering opportunities and project conversations.",
+};
 export default function ContactPage() {
-    return (
-        <main className="max-w-3xl mx-auto px-6 py-16">
-            <h1 className="text-4xl font-bold">Contact</h1>
-            <p className="mt-4 max-w-2xl text-gray-300 leading-relaxed">
-                Best way to reach me is email. I usually respond within 24 hours
-                for hiring, collaboration, or project-related conversations.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a
-                    className="inline-flex w-40 items-center justify-center rounded-lg border border-white/15 px-4 py-2 transition-colors hover:bg-white/5"
-                    href="mailto:cameron250taylor@outlook.com?subject=Hello%20Cameron"
-                >
-                    Email me
-                </a>
-                <a
-                    className="inline-flex w-40 items-center justify-center rounded-lg border border-white/15 px-4 py-2 transition-colors hover:bg-white/5"
-                    href="https://github.com/Dumpy250"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    GitHub
-                </a>
-                <a
-                    className="inline-flex w-40 items-center justify-center rounded-lg border border-white/15 px-4 py-2 transition-colors hover:bg-white/5"
-                    href="https://www.linkedin.com/in/cameron-basham-7555ba166"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    LinkedIn
-                </a>
-                <a
-                    className="inline-flex w-40 items-center justify-center rounded-lg border border-white/15 px-4 py-2 transition-colors hover:bg-white/5"
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Resume
-                </a>
-            </div>
-
-            <p className="mt-8 text-gray-300">
-                Open to backend, cloud, and platform engineering opportunities.
-            </p>
-        </main>
-    );
+  return (
+    <>
+      <header className="shell page-head">
+        <p className="eyebrow">Contact / Start a conversation</p>
+        <h1>
+          Let’s find out
+          <br />
+          what we could build.
+        </h1>
+        <p>
+          For software engineering opportunities, questions about a project, or
+          a conversation about working together, email is the best place to
+          start.
+        </p>
+      </header>
+      <section className="shell contact-layout" aria-label="Contact methods">
+        <p className="eyebrow">Email</p>
+        <a
+          className="email-link"
+          href="mailto:Cameron250taylor@outlook.com?subject=Software%20engineering%20opportunity"
+        >
+          Cameron250taylor@outlook.com ↗
+        </a>
+        <CopyEmailButton email="Cameron250taylor@outlook.com" />
+        <div className="contact-options">
+          <a
+            className="text-link"
+            href="https://github.com/Dumpy250"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub ↗
+          </a>
+          <a
+            className="text-link"
+            href="https://www.linkedin.com/in/cameron-basham"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            className="text-link"
+            href="/resume.pdf"
+            download="Cameron-Basham-General-Software-Resume.pdf"
+          >
+            Download résumé ↗
+          </a>
+        </div>
+        <p style={{ marginTop: 45, maxWidth: 600 }}>
+          Based in Michigan. Completing my software engineering degree, with
+          graduation expected in December 2026.
+        </p>
+      </section>
+    </>
+  );
 }
