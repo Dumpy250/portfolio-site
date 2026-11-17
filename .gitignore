@@ -10,8 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing (local-only; not included in the repository)
 /coverage
+/tests/
 
 # next.js
 /.next/

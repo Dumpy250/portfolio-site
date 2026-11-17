@@ -55,26 +55,9 @@ npm run lint -- src
 node node_modules/typescript/bin/tsc --noEmit --incremental false
 ```
 
-Run focused source tests using Node's built-in test runner, for example:
+The automated source and HTTP checks are kept locally in the ignored `tests/` folder; they are not included in this repository or a fresh clone. Local maintainers can still run their existing checks, while fresh clones can use lint, TypeScript and the production build commands above.
 
-```bash
-node --test tests/resume-delivery.test.mjs tests/copy-email.test.mjs
-```
-
-The HTTP checks in `tests/site.test.mjs` need a running production server. Their default URL is `http://127.0.0.1:3210`; `PORTFOLIO_TEST_URL` can select another base URL. To use the default, build and start the server in one terminal:
-
-```bash
-npm run build
-npm run start -- --hostname 127.0.0.1 --port 3210
-```
-
-Then run the checks in another terminal:
-
-```bash
-node --test tests/site.test.mjs
-```
-
-Source and HTTP tests do not replace browser checks for clipboard permissions, navigation, screenshot dialogs or actual downloads. Email copy requires a supported browser in a secure context such as HTTPS or localhost; if copying is unavailable, the address remains selectable.
+Automated checks do not replace browser checks for clipboard permissions, navigation, screenshot dialogs or actual downloads. Email copy requires a supported browser in a secure context such as HTTPS or localhost; if copying is unavailable, the address remains selectable.
 
 ## Content and files
 
@@ -90,7 +73,6 @@ src/
   data/                     Project catalog and homepage selection
   lib/                      Recorded-view data and presentation helpers
   types/                    Project types
-tests/                      Source and HTTP checks
 next.config.ts              Next.js configuration and résumé response header
 ```
 
