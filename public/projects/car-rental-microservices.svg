@@ -1,16 +1,10 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="72" y="80" width="1056" height="470" rx="28" fill="#020617" fill-opacity="0.42"/>
-  <text x="120" y="250" fill="#E2E8F0" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
-    Car Rental Microservices
-  </text>
-  <text x="120" y="320" fill="#94A3B8" font-size="30" font-family="Segoe UI, Arial, sans-serif">
-    Spring Boot  |  Cognito OAuth2  |  AWS RDS
-  </text>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Car Rental Vehicle Service</title>
+  <desc id="desc">Java and Spring Boot: REST endpoints, validation, persistence, and vehicle-to-user associations. Project title graphic, not an application screenshot.</desc>
+  <rect width="1200" height="630" fill="#15252b"/>
+  <text x="80" y="150" fill="#ffb59e" font-size="24" font-family="Consolas, monospace">JAVA / SPRING BOOT</text>
+  <text x="80" y="285" fill="#f0efe8" font-size="64" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Car Rental Vehicle Service</text>
+  <path d="M80 340H1120" stroke="#61716e"/>
+  <text x="80" y="415" fill="#c1cbc8" font-size="30" font-family="Segoe UI, Arial, sans-serif">REST endpoints · Validation · Persistence</text>
+  <text x="80" y="475" fill="#c1cbc8" font-size="30" font-family="Segoe UI, Arial, sans-serif">Vehicle-to-user associations</text>
 </svg>

@@ -1,19 +1,40 @@
+import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
-
+import { selectedProjects } from "@/data/selected-projects";
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Selected work in simulation telemetry, full-stack applications, computer vision, and C#/.NET.",
+};
 export default function ProjectsPage() {
-    return (
-        <main className="max-w-6xl mx-auto px-6 py-16">
-            <h1 className="text-4xl font-bold">Projects</h1>
-            <p className="mt-2 text-gray-300">
-                Flagship and recent work across observability, microservices, AWS, and ML.
-            </p>
-
-            <section className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {projects.map((p) => (
-                    <ProjectCard key={p.slug} p={p} />
-                ))}
-            </section>
-        </main>
-    );
+  const selected = selectedProjects;
+  return (
+    <>
+      <header className="shell page-head">
+        <p className="eyebrow">Work / Selected projects</p>
+        <h1>
+          From a problem
+          <br />
+          to a working system.
+        </h1>
+        <p>
+          Capstone, software development internship, team projects, and coursework.
+          Each case study explains the context, the implementation, and the
+          boundaries.
+        </p>
+        <nav className="project-index-nav" aria-label="Jump to a project">
+          {selected.slice(0, 4).map((project) => (
+            <a href={`#${project.slug}`} key={project.slug}>
+              {project.title} ↓
+            </a>
+          ))}
+        </nav>
+      </header>
+      <section className="shell catalog" aria-label="Project catalog">
+        {selected.map((project) => (
+          <ProjectCard key={project.slug} p={project} />
+        ))}
+      </section>
+    </>
+  );
 }
