@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -57,6 +58,7 @@ export default function RootLayout({
             <Link href="/contact">Get in touch ↗</Link>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
